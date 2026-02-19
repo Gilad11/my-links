@@ -81,29 +81,198 @@
 
     <script>
         const products = [
-            {
-                id: 1,
-                name: "Vichy Minéral 89",
-                badge: "BEST SELLER",
-                badgeColor: "bg-blue-600",
-                description: "The ultimate hyaluronic acid booster. Non-greasy and perfect for every skin type.",
-                price: "$24.99",
-                oldPrice: "$32.00",
-                image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=300", 
-                link: "https://amazon.com/example1" 
-            },
-            {
-                id: 2,
-                name: "RapidBrow Serum",
-                badge: "GILAD'S CHOICE",
-                badgeColor: "bg-purple-600",
-                description: "My go-to for thicker eyebrows. Scientific results in 4 weeks.",
-                price: "$35.00",
-                oldPrice: "$45.00",
-                image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=300",
-                link: "https://amazon.com/example2"
-            }
-        ];
+    // --- Skincare & Grooming ---
+    {
+        id: 1,
+        name: "Vichy Minéral 89",
+        badge: "BEST SELLER",
+        badgeColor: "bg-blue-600",
+        description: "The ultimate hydration booster. My daily secret for that healthy glass skin glow.",
+        price: "$24.99",
+        oldPrice: "$32.00",
+        image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=300", 
+        link: "#" 
+    },
+    {
+        id: 2,
+        name: "COSRX Snail Mucin Essence",
+        badge: "VIRAL ITEM",
+        badgeColor: "bg-orange-500",
+        description: "If you want that 'Glass Skin' look, this is it. It repairs and hydrates like nothing else.",
+        price: "$15.99",
+        oldPrice: "$25.00",
+        image: "https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=300",
+        link: "#"
+    },
+    {
+        id: 3,
+        name: "La Roche-Posay Invisible SPF",
+        badge: "MUST HAVE",
+        badgeColor: "bg-indigo-600",
+        description: "Zero white cast, zero grease. The only sunscreen I actually enjoy wearing every day.",
+        price: "$19.00",
+        oldPrice: "$22.00",
+        image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300",
+        link: "#"
+    },
+    {
+        id: 4,
+        name: "RapidBrow Eyebrow Serum",
+        badge: "GILAD'S CHOICE",
+        badgeColor: "bg-purple-600",
+        description: "Stop over-plucking. This serum gave me fuller brows in less than 6 weeks.",
+        price: "$35.00",
+        oldPrice: "$48.00",
+        image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=300",
+        link: "#"
+    },
+
+    // --- Content Creation & Tech ---
+    {
+        id: 5,
+        name: "DJI Mic 2 Wireless",
+        badge: "TOP QUALITY",
+        badgeColor: "bg-black",
+        description: "Crystal clear audio for your videos. It changed the game for my content quality.",
+        price: "$349.00",
+        oldPrice: "$399.00",
+        image: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=300",
+        link: "#"
+    },
+    {
+        id: 6,
+        name: "Portable Phone Tripod",
+        badge: "TRAVEL READY",
+        badgeColor: "bg-green-600",
+        description: "Super stable and fits in your pocket. Essential for solo travelers and creators.",
+        price: "$19.50",
+        oldPrice: "$29.99",
+        image: "https://images.unsplash.com/photo-1586105251261-72a756657fd1?w=300",
+        link: "#"
+    },
+    {
+        id: 7,
+        name: "Keychron K2 Mechanical Keyboard",
+        badge: "CREATIVE HUB",
+        badgeColor: "bg-gray-700",
+        description: "The typing sound is therapeutic. Best mechanical keyboard for coding and writing.",
+        price: "$79.00",
+        oldPrice: "$99.00",
+        image: "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=300",
+        link: "#"
+    },
+    {
+        id: 8,
+        name: "Logitech MX Master 3S",
+        badge: "PRODUCTIVITY",
+        badgeColor: "bg-blue-800",
+        description: "The most ergonomic mouse ever made. Your wrist will thank you after long study hours.",
+        price: "$99.00",
+        oldPrice: "$120.00",
+        image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=300",
+        link: "#"
+    },
+
+    // --- Lifestyle & Fashion ---
+    {
+        id: 9,
+        name: "Stanley Quencher H2.0",
+        badge: "TRENDING",
+        badgeColor: "bg-pink-500",
+        description: "Stay hydrated in style. Fits in your car cup holder and keeps ice for 2 days.",
+        price: "$45.00",
+        image: "https://images.unsplash.com/photo-1678465952738-99944f6bbb33?w=300",
+        link: "#"
+    },
+    {
+        id: 10,
+        name: "Retro Oversized Sunglasses",
+        badge: "STYLE PICK",
+        badgeColor: "bg-yellow-600",
+        description: "High-end look without the high-end price tag. Elevates any outfit instantly.",
+        price: "$22.99",
+        oldPrice: "$45.00",
+        image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=300",
+        link: "#"
+    },
+    {
+        id: 11,
+        name: "Minimalist Gold Chain",
+        badge: "ELEVATED",
+        badgeColor: "bg-amber-400",
+        description: "Waterproof and sweat-proof. I never take it off, even during volleyball matches.",
+        price: "$38.00",
+        image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=300",
+        link: "#"
+    },
+
+    // --- Health & Sports ---
+    {
+        id: 12,
+        name: "Theragun Mini 2.0",
+        badge: "RECOVERY",
+        badgeColor: "bg-red-600",
+        description: "Don't let muscle pain stop you. Best portable massage gun for post-workout recovery.",
+        price: "$179.00",
+        oldPrice: "$199.00",
+        image: "https://images.unsplash.com/photo-1591438677099-7cc40d53123b?w=300",
+        link: "#"
+    },
+    {
+        id: 13,
+        name: "Mikasa V200W Volleyball",
+        badge: "PRO GRADE",
+        badgeColor: "bg-blue-900",
+        description: "The official FIVB game ball. If you're serious about your game, this is the ball you need.",
+        price: "$75.00",
+        image: "https://images.unsplash.com/photo-1592656670411-2918d70c654e?w=300",
+        link: "#"
+    },
+    {
+        id: 14,
+        name: "Massage Peanut Ball",
+        badge: "STUDENT ESSENTIAL",
+        badgeColor: "bg-cyan-600",
+        description: "Perfect for releasing neck tension after sitting in lectures all day.",
+        price: "$12.00",
+        image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=300",
+        link: "#"
+    },
+
+    // --- Home & Office ---
+    {
+        id: 15,
+        name: "Sunrise Alarm Clock",
+        badge: "BETTER SLEEP",
+        badgeColor: "bg-orange-300",
+        description: "Wake up naturally with a simulated sunrise. It makes 8 AM lectures much easier.",
+        price: "$49.00",
+        oldPrice: "$65.00",
+        image: "https://images.unsplash.com/photo-1512428559087-560ad5ceab42?w=300",
+        link: "#"
+    },
+    {
+        id: 16,
+        name: "Portable Espresso Maker",
+        badge: "ON THE GO",
+        badgeColor: "bg-brown-600",
+        description: "Real espresso anywhere. Perfect for camping or those long days at the library.",
+        price: "$55.00",
+        image: "https://images.unsplash.com/photo-1512568400610-62da28bc8a13?w=300",
+        link: "#"
+    },
+    {
+        id: 17,
+        name: "Smart Dog Camera",
+        badge: "PET PARENT",
+        badgeColor: "bg-teal-500",
+        description: "Talk to your dog and toss treats while you're at the office. Peace of mind.",
+        price: "$129.00",
+        oldPrice: "$160.00",
+        image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=300",
+        link: "#"
+    }
+];
 
         function toggleDarkMode() {
             const html = document.documentElement;
@@ -162,3 +331,4 @@
     </script>
 </body>
 </html>
+
