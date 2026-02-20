@@ -133,12 +133,191 @@
     </main>
 
     <script>
-        const products = [
-            { id: 1, category: "Skincare", name: "Vichy Minéral 89", coupon: "GILAD25", badge: "TOP PICK", badgeColor: "bg-blue-600", description: "The ultimate hydration booster for glass skin.", price: "$24.99", oldPrice: "$32.00", image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=300", link: "#" },
-            { id: 2, category: "Skincare", name: "COSRX Snail Mucin", badge: "VIRAL", badgeColor: "bg-orange-500", description: "Repairs and hydrates like nothing else.", price: "$15.99", image: "https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=300", link: "#" },
-            { id: 3, category: "Tech", name: "DJI Mic 2 Wireless", badge: "CREATOR", badgeColor: "bg-black", description: "Pro-grade audio for content creators.", price: "$349.00", image: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=300", link: "#" }
-            // ... שאר המוצרים שלך
-        ];
+        // --- Skincare Expansion ---
+{ 
+    id: 18, 
+    category: "Skincare", 
+    name: "CeraVe SA Cleanser", 
+    badge: "ACNE CONTROL", 
+    badgeColor: "bg-blue-500", 
+    description: "The gold standard for Salicylic Acid. Clears pores without stripping your skin.", 
+    price: "$14.50", 
+    oldPrice: "$19.00", 
+    image: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=300", 
+    link: "#" 
+},
+{ 
+    id: 19, 
+    category: "Skincare", 
+    name: "Anua Heartleaf 77% Toner", 
+    badge: "VIRAL K-BEAUTY", 
+    badgeColor: "bg-green-600", 
+    description: "The #1 toner in Korea right now. Calms redness instantly for that glass skin base.", 
+    price: "$21.00", 
+    oldPrice: "$28.00", 
+    image: "https://images.unsplash.com/photo-1617897903246-719242758050?w=300", 
+    link: "#" 
+},
+{ 
+    id: 20, 
+    category: "Skincare", 
+    name: "Beauty of Joseon Sunscreen", 
+    badge: "CULT FAVORITE", 
+    badgeColor: "bg-amber-100 !text-amber-900", 
+    description: "Feels like a light moisturizer. No white cast, just a healthy glow.", 
+    price: "$18.00", 
+    image: "https://images.unsplash.com/photo-1598440499113-b90309289181?w=300", 
+    link: "#" 
+},
+
+// --- Tech & Programming ---
+{ 
+    id: 21, 
+    category: "Tech", 
+    name: "Elgato Stream Deck MK.2", 
+    badge: "EFFICIENCY", 
+    badgeColor: "bg-zinc-800", 
+    description: "Not just for streamers. I use it to automate my coding shortcuts and AI prompts.", 
+    price: "$149.99", 
+    oldPrice: "$169.00", 
+    image: "https://images.unsplash.com/photo-1616533311731-fe741b6195ec?w=300", 
+    link: "#" 
+},
+{ 
+    id: 22, 
+    category: "Tech", 
+    name: "Blue Light Blocking Glasses", 
+    badge: "DEV ESSENTIAL", 
+    badgeColor: "bg-cyan-500", 
+    description: "Save your eyes during those 2 AM coding sessions. Minimalist Peppermayo-style frames.", 
+    price: "$29.00", 
+    image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=300", 
+    link: "#" 
+},
+{ 
+    id: 23, 
+    category: "Tech", 
+    name: "Sony ZV-E10 Vlogging Camera", 
+    badge: "CONTENT KING", 
+    badgeColor: "bg-red-600", 
+    description: "The best entry-level camera for high-quality social media video generation.", 
+    price: "$698.00", 
+    oldPrice: "$750.00", 
+    image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=300", 
+    link: "#" 
+},
+
+// --- Sports & Recovery (Volleyball focus) ---
+{ 
+    id: 24, 
+    category: "Lifestyle", 
+    name: "Shock Doctor Shoulder Support", 
+    badge: "INJURY CARE", 
+    badgeColor: "bg-orange-600", 
+    description: "Helped me stay active even with a SLAP tear. Essential stability for volleyball players.", 
+    price: "$45.00", 
+    image: "https://images.unsplash.com/photo-1512138411829-28146a51e2c1?w=300", 
+    link: "#" 
+},
+{ 
+    id: 25, 
+    category: "Lifestyle", 
+    name: "Mizuno Wave Lightning Z7", 
+    badge: "PRO PERFORMANCE", 
+    badgeColor: "bg-blue-900", 
+    description: "The absolute best shoes for vertical jump and court traction. My game changer.", 
+    price: "$135.00", 
+    oldPrice: "$160.00", 
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300", 
+    link: "#" 
+},
+{ 
+    id: 26, 
+    category: "Lifestyle", 
+    name: "Liquid I.V. Electrolytes", 
+    badge: "HYDRATION", 
+    badgeColor: "bg-sky-400", 
+    description: "Hydrates 2x faster than water alone. Perfect for long matches in the heat.", 
+    price: "$24.00", 
+    image: "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?w=300", 
+    link: "#" 
+},
+
+// --- Motorcycle & Mobility ---
+{ 
+    id: 27, 
+    category: "Tech", 
+    name: "Quad Lock Moto Mount", 
+    badge: "SECURE", 
+    badgeColor: "bg-blue-600", 
+    description: "The only mount I trust on my Joyride. Doesn't vibrate, doesn't drop.", 
+    price: "$59.00", 
+    image: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=300", 
+    link: "#" 
+},
+{ 
+    id: 28, 
+    category: "Lifestyle", 
+    name: "Matte Black Helmet", 
+    badge: "STYLE & SAFETY", 
+    badgeColor: "bg-zinc-900", 
+    description: "Lightweight, aerodynamic, and looks incredibly clean on an electric scooter or bike.", 
+    price: "$120.00", 
+    oldPrice: "$150.00", 
+    image: "https://images.unsplash.com/photo-1558981403-c5f9199ad25e?w=300", 
+    link: "#" 
+},
+
+// --- Fashion & Finance ---
+{ 
+    id: 29, 
+    category: "Lifestyle", 
+    name: "MagSafe Minimalist Wallet", 
+    badge: "DAILY CARRY", 
+    badgeColor: "bg-stone-800", 
+    description: "Holds your essential cards and snaps right to your phone. Sleek and efficient.", 
+    price: "$35.00", 
+    image: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=300", 
+    link: "#" 
+},
+{ 
+    id: 30, 
+    category: "Lifestyle", 
+    name: "Oversized Heavyweight Hoodie", 
+    badge: "FASHION", 
+    badgeColor: "bg-slate-500", 
+    description: "That high-end Peppermayo aesthetic. Perfect for campus days and looking sharp.", 
+    price: "$65.00", 
+    oldPrice: "$85.00", 
+    image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=300", 
+    link: "#" 
+},
+
+// --- Pets ---
+{ 
+    id: 31, 
+    category: "Lifestyle", 
+    name: "Interactive Snuffle Mat", 
+    badge: "DOG ENRICHMENT", 
+    badgeColor: "bg-yellow-500", 
+    description: "Keep your dog's brain busy while you study. Reduces anxiety and boredom.", 
+    price: "$24.99", 
+    image: "https://images.unsplash.com/photo-1541364983171-a8ba01d95cfc?w=300", 
+    link: "#" 
+},
+{ 
+    id: 32, 
+    category: "Lifestyle", 
+    name: "Orthopedic Dog Bed", 
+    badge: "PET LUXURY", 
+    badgeColor: "bg-stone-400", 
+    description: "Memory foam base for maximum joint support. My dog never wants to leave it.", 
+    price: "$89.00", 
+    oldPrice: "$110.00", 
+    image: "https://images.unsplash.com/photo-1591946614421-1fbf121fca38?w=300", 
+    link: "#" 
+}
+];
 
         let userCity = "Someone";
         let currentCategory = 'all';
@@ -248,3 +427,4 @@
     </script>
 </body>
 </html>
+
