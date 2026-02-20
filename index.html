@@ -57,7 +57,7 @@
             @apply text-gray-400 font-medium text-[10px] uppercase tracking-widest py-3 border-b border-gray-50 dark:border-slate-700 text-left w-1/4;
         }
         .comparison-table td {
-            @apply py-3 border-b border-gray-50 dark:border-slate-700 text-center text-[11px] font-bold cursor-pointer transition-colors;
+            @apply py-4 border-b border-gray-50 dark:border-slate-700 text-center text-[11px] font-bold cursor-pointer transition-colors;
         }
         .comparison-table td:hover { background: rgba(99, 102, 241, 0.05); }
 
@@ -105,7 +105,7 @@
     <main class="max-w-md mx-auto p-4 mt-4 space-y-10">
         
         <section class="mt-4">
-            <h3 class="text-[10px] font-black text-gray-400 dark:text-slate-500 uppercase tracking-widest mb-4">Quick Comparison</h3>
+            <h3 class="text-[10px] font-black text-gray-400 dark:text-slate-500 uppercase tracking-widest mb-4 text-center">🏆 Best Sellers Comparison</h3>
             <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 shadow-sm border border-gray-100 dark:border-slate-700 overflow-hidden">
                 <table class="w-full text-left comparison-table border-collapse">
                     <tbody>
@@ -132,34 +132,27 @@
         <div id="productGrid" class="grid grid-cols-1 gap-6"></div>
     </main>
 
-const products = [
-    { id: 1, category: "Skincare", name: "Vichy Minéral 89", coupon: "GILAD25", badge: "TOP PICK", badgeColor: "bg-blue-600", description: "The ultimate hydration booster for glass skin.", price: "$24.99", oldPrice: "$32.00", image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=300", link: "#" },
-    { id: 2, category: "Skincare", name: "COSRX Snail Mucin", badge: "VIRAL", badgeColor: "bg-orange-500", description: "Repairs and hydrates like nothing else.", price: "$15.99", image: "https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=300", link: "#" },
-    { id: 3, category: "Tech", name: "DJI Mic 2 Wireless", badge: "CREATOR", badgeColor: "bg-black", description: "Pro-grade audio for content creators.", price: "$349.00", image: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=300", link: "#" },
-    
-    // --- Skincare Expansion ---
-    { id: 4, category: "Skincare", name: "CeraVe SA Cleanser", badge: "ACNE CONTROL", badgeColor: "bg-cyan-600", description: "Smooths skin and targets breakouts with Salicylic Acid.", price: "$14.50", oldPrice: "$18.00", image: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=300", link: "#" },
-    { id: 5, category: "Skincare", name: "Anua Heartleaf 77%", badge: "K-BEAUTY", badgeColor: "bg-green-600", description: "The most soothing toner for sensitive or irritated skin.", price: "$21.00", oldPrice: "$28.00", image: "https://images.unsplash.com/photo-1617897903246-719242758050?w=300", link: "#" },
-    { id: 6, category: "Skincare", name: "Beauty of Joseon Sun", coupon: "SUN30", badge: "MUST HAVE", badgeColor: "bg-stone-500", description: "Lightweight SPF 50 that feels like a moisturizer.", price: "$18.00", image: "https://images.unsplash.com/photo-1598440499113-b90309289181?w=300", link: "#" },
-
-    // --- Tech & Programming ---
-    { id: 7, category: "Tech", name: "Keychron K2 V2", coupon: "KEYS10", badge: "DEV PICK", badgeColor: "bg-zinc-800", description: "Compact mechanical keyboard for a perfect coding setup.", price: "$79.00", oldPrice: "$99.00", image: "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=300", link: "#" },
-    { id: 8, category: "Tech", name: "Logitech MX Master 3S", badge: "PRODUCTIVITY", badgeColor: "bg-blue-800", description: "Ergonomic mouse designed for hours of creative work.", price: "$99.00", image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=300", link: "#" },
-    { id: 9, category: "Tech", name: "Blue Light Glasses", badge: "STUDY AID", badgeColor: "bg-indigo-500", description: "Reduce eye strain during long AI generation sessions.", price: "$29.00", oldPrice: "$45.00", image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=300", link: "#" },
-
-    // --- Lifestyle & Sports ---
-    { id: 10, category: "Lifestyle", name: "Shoulder Support Brace", badge: "RECOVERY", badgeColor: "bg-red-600", description: "Essential stability for volleyball players with injuries.", price: "$45.00", image: "https://images.unsplash.com/photo-1512138411829-28146a51e2c1?w=300", link: "#" },
-    { id: 11, category: "Lifestyle", name: "Mikasa V200W Ball", badge: "PRO GRADE", badgeColor: "bg-blue-900", description: "Official game ball for competitive volleyball matches.", price: "$75.00", oldPrice: "$89.00", image: "https://images.unsplash.com/photo-1592656670411-2918d70c654e?w=300", link: "#" },
-    { id: 12, category: "Lifestyle", name: "Matte Black Helmet", badge: "SAFETY", badgeColor: "bg-zinc-900", description: "Sleek and secure protection for scooter or bike riders.", price: "$120.00", image: "https://images.unsplash.com/photo-1558981403-c5f9199ad25e?w=300", link: "#" },
-
-    // --- Modern Living ---
-    { id: 13, category: "Lifestyle", name: "MagSafe Card Holder", coupon: "SLIM15", badge: "MINIMALIST", badgeColor: "bg-stone-800", description: "Keep your essentials together with a snap to your phone.", price: "$35.00", oldPrice: "$45.00", image: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=300", link: "#" },
-    { id: 14, category: "Lifestyle", name: "Oversized Soft Hoodie", badge: "FASHION", badgeColor: "bg-slate-500", description: "High-quality Peppermayo style for a clean campus look.", price: "$65.00", image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=300", link: "#" },
-    { id: 15, category: "Lifestyle", name: "Snuffle Mat for Dogs", badge: "PET CARE", badgeColor: "bg-yellow-500", description: "Interactive puzzle to keep your dog busy while you study.", price: "$24.99", oldPrice: "$35.00", image: "https://images.unsplash.com/photo-1541364983171-a8ba01d95cfc?w=300", link: "#" },
-    { id: 16, category: "Tech", name: "Quad Lock Moto Mount", badge: "SECURE", badgeColor: "bg-blue-500", description: "The most reliable phone mount for your scooter/moto.", price: "$59.00", image: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=300", link: "#" },
-    { id: 17, category: "Lifestyle", name: "Stanley Quencher 2.0", badge: "TRENDING", badgeColor: "bg-rose-400", description: "Keep your drinks cold all day at the beach or office.", price: "$45.00", image: "https://images.unsplash.com/photo-1678465952738-99944f6bbb33?w=300", link: "#" },
-    { id: 18, category: "Tech", name: "Portable Espresso Maker", badge: "ON THE GO", badgeColor: "bg-amber-900", description: "Perfect caffeine fix for long days at the college.", price: "$55.00", oldPrice: "$70.00", image: "https://images.unsplash.com/photo-1512568400610-62da28bc8a13?w=300", link: "#" }
-];
+    <script>
+        const products = [
+            { id: 1, category: "Skincare", name: "Vichy Minéral 89", coupon: "GILAD25", badge: "TOP PICK", badgeColor: "bg-blue-600", description: "The ultimate hydration booster for glass skin.", price: "$24.99", oldPrice: "$32.00", image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=300", link: "#" },
+            { id: 2, category: "Skincare", name: "COSRX Snail Mucin", badge: "VIRAL", badgeColor: "bg-orange-500", description: "Repairs and hydrates like nothing else.", price: "$15.99", image: "https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=300", link: "#" },
+            { id: 3, category: "Tech", name: "DJI Mic 2 Wireless", badge: "CREATOR", badgeColor: "bg-black", description: "Pro-grade audio for content creators.", price: "$349.00", image: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=300", link: "#" },
+            { id: 4, category: "Skincare", name: "CeraVe SA Cleanser", badge: "ACNE CONTROL", badgeColor: "bg-cyan-600", description: "Smooths skin and targets breakouts with Salicylic Acid.", price: "$14.50", oldPrice: "$18.00", image: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=300", link: "#" },
+            { id: 5, category: "Skincare", name: "Anua Heartleaf 77%", badge: "K-BEAUTY", badgeColor: "bg-green-600", description: "The most soothing toner for sensitive or irritated skin.", price: "$21.00", oldPrice: "$28.00", image: "https://images.unsplash.com/photo-1617897903246-719242758050?w=300", link: "#" },
+            { id: 6, category: "Skincare", name: "Beauty of Joseon Sun", coupon: "SUN30", badge: "MUST HAVE", badgeColor: "bg-stone-500", description: "Lightweight SPF 50 that feels like a moisturizer.", price: "$18.00", image: "https://images.unsplash.com/photo-1598440499113-b90309289181?w=300", link: "#" },
+            { id: 7, category: "Tech", name: "Keychron K2 V2", coupon: "KEYS10", badge: "DEV PICK", badgeColor: "bg-zinc-800", description: "Compact mechanical keyboard for a perfect coding setup.", price: "$79.00", oldPrice: "$99.00", image: "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=300", link: "#" },
+            { id: 8, category: "Tech", name: "Logitech MX Master 3S", badge: "PRODUCTIVITY", badgeColor: "bg-blue-800", description: "Ergonomic mouse designed for hours of creative work.", price: "$99.00", image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=300", link: "#" },
+            { id: 9, category: "Tech", name: "Blue Light Glasses", badge: "STUDY AID", badgeColor: "bg-indigo-500", description: "Reduce eye strain during long sessions.", price: "$29.00", oldPrice: "$45.00", image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=300", link: "#" },
+            { id: 10, category: "Lifestyle", name: "Shoulder Support Brace", badge: "RECOVERY", badgeColor: "bg-red-600", description: "Essential stability for volleyball players.", price: "$45.00", image: "https://images.unsplash.com/photo-1512138411829-28146a51e2c1?w=300", link: "#" },
+            { id: 11, category: "Lifestyle", name: "Mikasa V200W Ball", badge: "PRO GRADE", badgeColor: "bg-blue-900", description: "Official game ball for competitive volleyball.", price: "$75.00", oldPrice: "$89.00", image: "https://images.unsplash.com/photo-1592656670411-2918d70c654e?w=300", link: "#" },
+            { id: 12, category: "Lifestyle", name: "Matte Black Helmet", badge: "SAFETY", badgeColor: "bg-zinc-900", description: "Sleek and secure protection for riders.", price: "$120.00", image: "https://images.unsplash.com/photo-1558981403-c5f9199ad25e?w=300", link: "#" },
+            { id: 13, category: "Lifestyle", name: "MagSafe Card Holder", coupon: "SLIM15", badge: "MINIMALIST", badgeColor: "bg-stone-800", description: "Essentials together with a snap to your phone.", price: "$35.00", oldPrice: "$45.00", image: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=300", link: "#" },
+            { id: 14, category: "Lifestyle", name: "Oversized Soft Hoodie", badge: "FASHION", badgeColor: "bg-slate-500", description: "High-quality style for a clean campus look.", price: "$65.00", image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=300", link: "#" },
+            { id: 15, category: "Lifestyle", name: "Snuffle Mat for Dogs", badge: "PET CARE", badgeColor: "bg-yellow-500", description: "Interactive puzzle to keep your dog busy.", price: "$24.99", oldPrice: "$35.00", image: "https://images.unsplash.com/photo-1541364983171-a8ba01d95cfc?w=300", link: "#" },
+            { id: 16, category: "Tech", name: "Quad Lock Moto Mount", badge: "SECURE", badgeColor: "bg-blue-500", description: "Reliable phone mount for your scooter/moto.", price: "$59.00", image: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=300", link: "#" },
+            { id: 17, category: "Lifestyle", name: "Stanley Quencher 2.0", badge: "TRENDING", badgeColor: "bg-rose-400", description: "Keep drinks cold all day anywhere.", price: "$45.00", image: "https://images.unsplash.com/photo-1678465952738-99944f6bbb33?w=300", link: "#" },
+            { id: 18, category: "Tech", name: "Portable Espresso", badge: "ON THE GO", badgeColor: "bg-amber-900", description: "Caffeine fix for long days at college.", price: "$55.00", oldPrice: "$70.00", image: "https://images.unsplash.com/photo-1512568400610-62da28bc8a13?w=300", link: "#" }
+        ];
 
         let userCity = "Someone";
         let currentCategory = 'all';
@@ -195,10 +188,8 @@ const products = [
                 const elementPosition = element.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
                 window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-                
-                // אפקט ויזואלי לסימון המוצר
-                element.classList.add('ring-2', 'ring-indigo-500');
-                setTimeout(() => element.classList.remove('ring-2', 'ring-indigo-500'), 2000);
+                element.classList.add('ring-4', 'ring-indigo-500', 'ring-opacity-50');
+                setTimeout(() => element.classList.remove('ring-4', 'ring-indigo-500', 'ring-opacity-50'), 2000);
             }
         }
 
@@ -233,10 +224,10 @@ const products = [
             items.forEach((p, i) => {
                 const card = document.createElement('div');
                 card.id = `prod-${p.id}`;
-                card.className = "product-card bg-white dark:bg-slate-800 rounded-[2rem] shadow-sm border border-gray-100 dark:border-slate-700 overflow-hidden flex items-center p-4 relative cursor-pointer";
+                card.className = "product-card bg-white dark:bg-slate-800 rounded-[2rem] shadow-sm border border-gray-100 dark:border-slate-700 overflow-hidden flex items-center p-4 relative cursor-pointer group";
                 card.style.animationDelay = `${i * 0.05}s`;
                 card.innerHTML = `
-                    ${p.badge ? `<span class="absolute top-3 left-3 ${p.badgeColor} text-white text-[9px] font-black px-2 py-1 rounded-lg z-10 shadow-md">${p.badge}</span>` : ''}
+                    ${p.badge ? `<span class="absolute top-3 left-3 ${p.badgeColor} text-white text-[9px] font-black px-2 py-1 rounded-lg z-10 shadow-md uppercase tracking-tighter">${p.badge}</span>` : ''}
                     <div class="img-container w-24 h-24 shrink-0 overflow-hidden rounded-2xl bg-gray-50 dark:bg-slate-700">
                         <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover">
                     </div>
@@ -245,10 +236,10 @@ const products = [
                         ${p.coupon ? `<button id="btn-${p.id}" onclick="copyCoupon('${p.coupon}', 'btn-${p.id}')" class="mt-1 text-[9px] font-bold bg-gray-100 dark:bg-slate-700 px-2 py-1 rounded-md transition-all">Copy Code ✂️</button>` : ''}
                         <div class="flex items-center justify-between mt-3">
                             <div>
-                                <span class="text-gray-300 dark:text-slate-500 text-[10px] line-through block">${p.oldPrice || ''}</span>
+                                <span class="text-gray-300 dark:text-slate-500 text-[10px] line-through block leading-none">${p.oldPrice || ''}</span>
                                 <span class="text-indigo-600 dark:text-indigo-400 font-black text-lg">${p.price}</span>
                             </div>
-                            <a href="${p.link}" target="_blank" class="shop-btn bg-black dark:bg-white dark:text-black text-white px-5 py-2.5 rounded-xl text-xs font-black shadow-lg">Shop Now</a>
+                            <a href="${p.link}" target="_blank" class="shop-btn bg-black dark:bg-white dark:text-black text-white px-5 py-2.5 rounded-xl text-xs font-black shadow-lg hover:scale-105 active:scale-95 transition-all">Shop Now</a>
                         </div>
                     </div>`;
                 grid.appendChild(card);
@@ -269,5 +260,3 @@ const products = [
     </script>
 </body>
 </html>
-
-
