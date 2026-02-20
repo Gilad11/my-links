@@ -282,39 +282,43 @@
         }
 
         function renderProducts(productsToRender) {
-            const grid = document.getElementById('productGrid');
-            grid.innerHTML = '';
+    const grid = document.getElementById('productGrid');
+    grid.innerHTML = '';
 
-            productsToRender.forEach((product, index) => {
-                const card = document.createElement('div');
-                card.className = "product-card bg-white dark:bg-slate-800 rounded-[2rem] shadow-sm border border-gray-100 dark:border-slate-700 overflow-hidden flex items-center p-4 relative";
-                card.style.animation = `fadeInUp 0.6s ease forwards ${index * 0.1}s`;
+    productsToRender.forEach((product, index) => {
+        const card = document.createElement('div');
+        // הוספתי כאן את המילה 'group' כדי שהתמונה תדע מתי העכבר מעל הכרטיס
+        card.className = "product-card group bg-white dark:bg-slate-800 rounded-[2rem] shadow-sm border border-gray-100 dark:border-slate-700 overflow-hidden flex items-center p-4 relative cursor-pointer";
+        card.style.animation = `fadeInUp 0.6s ease forwards ${index * 0.1}s`;
 
-                card.innerHTML = `
-                    ${product.badge ? `<span class="absolute top-3 left-3 ${product.badgeColor} text-white text-[9px] font-black px-2 py-1 rounded-lg z-10 tracking-tighter">${product.badge}</span>` : ''}
-                    
-                    <img src="${product.image}" alt="${product.name}" class="w-24 h-24 object-cover rounded-2xl shadow-sm">
+        card.innerHTML = `
+            ${product.badge ? `<span class="absolute top-3 left-3 ${product.badgeColor} text-white text-[9px] font-black px-2 py-1 rounded-lg z-10 tracking-tighter">${product.badge}</span>` : ''}
+            
+            <div class="w-24 h-24 shrink-0 overflow-hidden rounded-2xl shadow-sm">
+                <img src="${product.image}" alt="${product.name}" 
+                     class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110">
+            </div>
 
-                    <div class="ml-4 flex-1">
-                        <h2 class="font-bold text-gray-900 dark:text-white text-base leading-tight">${product.name}</h2>
-                        <p class="text-gray-400 dark:text-slate-400 text-[11px] mt-1 line-clamp-2 leading-relaxed italic border-l-2 border-indigo-500 pl-2">
-                            "${product.description}"
-                        </p>
-                        <div class="flex items-center justify-between mt-3">
-                            <div class="flex flex-col">
-                                <span class="text-gray-300 dark:text-slate-500 text-[10px] line-through">${product.oldPrice || ''}</span>
-                                <span class="text-gray-900 dark:text-white font-black text-lg">${product.price}</span>
-                            </div>
-                            <a href="${product.link}" target="_blank" 
-                               class="shop-btn bg-black dark:bg-white dark:text-black text-white px-5 py-2.5 rounded-xl text-xs font-black hover:opacity-80 transition-all flex items-center gap-2">
-                                Shop Now <span>→</span>
-                            </a>
-                        </div>
+            <div class="ml-4 flex-1 text-left">
+                <h2 class="font-bold text-gray-900 dark:text-white text-base leading-tight">${product.name}</h2>
+                <p class="text-gray-400 dark:text-slate-400 text-[11px] mt-1 line-clamp-2 leading-relaxed italic border-l-2 border-indigo-500 pl-2">
+                    "${product.description}"
+                </p>
+                <div class="flex items-center justify-between mt-3">
+                    <div class="flex flex-col">
+                        <span class="text-gray-300 dark:text-slate-500 text-[10px] line-through">${product.oldPrice || ''}</span>
+                        <span class="text-gray-900 dark:text-white font-black text-lg">${product.price}</span>
                     </div>
-                `;
-                grid.appendChild(card);
-            });
-        }
+                    <a href="${product.link}" target="_blank" 
+                       class="shop-btn bg-black dark:bg-white dark:text-black text-white px-5 py-2.5 rounded-xl text-xs font-black hover:opacity-80 transition-all flex items-center gap-2">
+                        Shop Now <span>→</span>
+                    </a>
+                </div>
+            </div>
+        `;
+        grid.appendChild(card);
+    });
+}
 
         function filterProducts() {
             const query = document.getElementById('searchInput').value.toLowerCase();
@@ -331,4 +335,5 @@
     </script>
 </body>
 </html>
+
 
