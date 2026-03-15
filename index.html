@@ -94,7 +94,6 @@
     </main>
 
     <script>
-        // המרת המערך ל-let כדי שנוכל להוסיף מוצרים מהאוטומציה
         let products = [
             { id: 1, category: "Skincare", name: "Vichy Minéral 89", coupon: "GILAD25", badge: "TOP PICK", badgeColor: "bg-blue-600", description: "The ultimate hydration booster for glass skin.", price: "$24.99", oldPrice: "$32.00", image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=300", link: "#" },
             { id: 2, category: "Skincare", name: "COSRX Snail Mucin", badge: "VIRAL", badgeColor: "bg-orange-500", description: "Repairs and hydrates like nothing else.", price: "$15.99", image: "https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=300", link: "#" },
@@ -180,55 +179,63 @@
             filterProducts();
         }
 
-        // פונקציית הרינדור המעודכנת שתומכת בוידאו מהאוטומציה
+        // פונקציית הרינדור המעודכנת
         function renderProducts(items) {
             const grid = document.getElementById('productGrid');
             grid.innerHTML = '';
+            
             items.forEach((p, i) => {
                 const card = document.createElement('div');
                 card.id = `prod-${p.id}`;
                 card.className = "product-card bg-white dark:bg-slate-800 rounded-[2rem] shadow-sm border border-gray-100 dark:border-slate-700 overflow-hidden flex items-center p-4 relative cursor-pointer group";
                 card.style.animationDelay = `${i * 0.05}s`;
                 
-                // בדיקה אם להציג וידאו או תמונה
-                const mediaHtml = p.video ? 
-                    `<video class="w-full h-full object-cover" autoplay muted loop playsinline><source src="${p.video}" type="video/mp4"></video>` : 
-                    `<img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover">`;
+                const mediaHtml = p.video 
+                    ? `<video class="w-full h-full object-cover" autoplay muted loop playsinline poster="${p.image || ''}"><source src="${p.video}" type="video/mp4"></video>` 
+                    : `<img src="${p.image || ''}" alt="${p.name}" class="w-full h-full object-cover">`;
+
+                const badgeHtml = p.badge ? `<span class="absolute top-3 left-3 ${p.badgeColor || 'bg-black'} text-white text-[9px] font-black px-2 py-1 rounded-lg z-10 shadow-md uppercase tracking-tighter">${p.badge}</span>` : '';
+                const couponHtml = p.coupon ? `<button id="btn-${p.id}" onclick="copyCoupon('${p.coupon}', 'btn-${p.id}')" class="mt-1 text-[9px] font-bold bg-gray-100 dark:bg-slate-700 px-2 py-1 rounded-md transition-all z-20 relative">Copy Code ✂️</button>` : '';
+                const oldPriceHtml = p.oldPrice ? `<span class="text-gray-300 dark:text-slate-500 text-[10px] line-through block leading-none">${p.oldPrice}</span>` : '';
 
                 card.innerHTML = `
-                    ${p.badge ? `<span class="absolute top-3 left-3 ${p.badgeColor} text-white text-[9px] font-black px-2 py-1 rounded-lg z-10 shadow-md uppercase tracking-tighter">${p.badge}</span>` : ''}
+                    ${badgeHtml}
                     <div class="img-container w-24 h-24 shrink-0 overflow-hidden rounded-2xl bg-gray-50 dark:bg-slate-700">
                         ${mediaHtml}
                     </div>
                     <div class="ml-4 flex-1">
-                        <h2 class="font-bold text-gray-900 dark:text-white text-base leading-tight">${p.name || 'New Pick!'}</h2>
-                        ${p.coupon ? `<button id="btn-${p.id}" onclick="copyCoupon('${p.coupon}', 'btn-${p.id}')" class="mt-1 text-[9px] font-bold bg-gray-100 dark:bg-slate-700 px-2 py-1 rounded-md transition-all">Copy Code ✂️</button>` : ''}
+                        <h2 class="font-bold text-gray-900 dark:text-white text-base leading-tight">${p.name || 'New Item'}</h2>
+                        ${couponHtml}
                         <div class="flex items-center justify-between mt-3">
                             <div>
-                                <span class="text-gray-300 dark:text-slate-500 text-[10px] line-through block leading-none">${p.oldPrice || ''}</span>
-                                <span class="text-indigo-600 dark:text-indigo-400 font-black text-lg">${p.price || 'Sale'}</span>
+                                ${oldPriceHtml}
+                                <span class="text-indigo-600 dark:text-indigo-400 font-black text-lg">${p.price || 'Check Site'}</span>
                             </div>
-                            <a href="${p.link}" target="_blank" class="shop-btn bg-black dark:bg-white dark:text-black text-white px-5 py-2.5 rounded-xl text-xs font-black shadow-lg hover:scale-105 active:scale-95 transition-all">Shop Now</a>
+                            <a href="${p.link || '#'}" target="_blank" class="shop-btn bg-black dark:bg-white dark:text-black text-white px-5 py-2.5 rounded-xl text-xs font-black shadow-lg hover:scale-105 active:scale-95 transition-all z-20 relative">Shop Now</a>
                         </div>
                     </div>`;
                 grid.appendChild(card);
             });
         }
 
+        // פונקציית הסינון המעודכנת
         function filterProducts() {
             const query = document.getElementById('searchInput').value.toLowerCase();
-            const filtered = products.filter(p => (p.name && p.name.toLowerCase().includes(query)) && (currentCategory === 'all' || p.category === currentCategory));
+            const filtered = products.filter(p => {
+                const matchSearch = p.name && p.name.toLowerCase().includes(query);
+                const prodCategory = p.category || 'Lifestyle'; // קטגוריית ברירת מחדל אם חסר
+                const matchCategory = currentCategory === 'all' || prodCategory === currentCategory;
+                return matchSearch && matchCategory;
+            });
             renderProducts(filtered);
         }
 
         window.onload = async () => {
             await getUserLocation();
             
-            // משיכת המוצרים האוטומטיים מ-JSON והוספתם למערך הקיים
             try {
                 const response = await fetch('products.json');
                 const automatedProducts = await response.json();
-                // הוספת המוצרים החדשים לראש הרשימה
                 products = [...automatedProducts, ...products];
             } catch (e) {
                 console.log("Automation file not found yet.");
