@@ -57,6 +57,20 @@
   },
   {
     "id": "product-folder",
+    "category": "Lifestyle",
+    "name": "New Arrival",
+    "description": "",
+    "price": "",
+    "oldPrice": "",
+    "badge": "NEW",
+    "badgeColor": "bg-indigo-600",
+    "coupon": "",
+    "image": "https://pick-store-bucket2.s3.us-east-1.amazonaws.com/thumbnails/product-folder.jpg",
+    "video": "https://pick-store-bucket2.s3.amazonaws.com/final_videos/product-folder_final.mp4",
+    "link": "#"
+  },
+  {
+    "id": "product-folder",
     "video": "https://pick-store-bucket2.s3.amazonaws.com/final_videos/product-folder_final.mp4",
     "link": "https://www.amazon.com/..."
   }
